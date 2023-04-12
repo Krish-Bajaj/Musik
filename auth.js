@@ -300,7 +300,6 @@ const pred6 = document.querySelector("#pred6");
 const pred7 = document.querySelector("#pred7");
 const getFeatures = async (id) => {
   const access_token = await getToken();
-  //   6Knv6wdA0luoMUuuoYi2i1
   result = await fetch("https://api.spotify.com/v1/audio-features/" + id, {
     method: "GET",
     headers: {
@@ -313,6 +312,7 @@ const getFeatures = async (id) => {
     data: data,
   };
 
+  predBlock.style.display = "block";
   fetch("http://127.0.0.1:5000/", {
     method: "POST",
     body: JSON.stringify(query),
@@ -322,7 +322,6 @@ const getFeatures = async (id) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      predBlock.style.display = "block";
       if (json["pred"] === "0") {
         predText.innerHTML = "Flop!";
       } else {
@@ -331,14 +330,14 @@ const getFeatures = async (id) => {
       console.log(json);
     });
 
-    console.log(data)
-    pred1.innerHTML = data["acousticness"];
-    pred2.innerHTML = data["danceability"];
-    pred3.innerHTML = data["energy"];
-    pred4.innerHTML = data["loudness"];
-    pred5.innerHTML = data["instrumentalness"];
-    pred6.innerHTML = data["tempo"];
-    pred7.innerHTML = data["valence"];
+  console.log(data);
+  pred1.innerHTML = data["acousticness"];
+  pred2.innerHTML = data["danceability"];
+  pred3.innerHTML = data["energy"];
+  pred4.innerHTML = data["loudness"];
+  pred5.innerHTML = data["instrumentalness"];
+  pred6.innerHTML = data["tempo"];
+  pred7.innerHTML = data["valence"];
 };
 
 const predictBtn = document.querySelector("#predict-btn");

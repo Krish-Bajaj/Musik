@@ -70,10 +70,12 @@
               <input type="text" id="spotify-song-id" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp">
             </div>
-            <button type="submit" id="predict-btn" class="btn btn-primary">Predict</button>
+            <button type="submit" id="predict-btn" class="btn btn-primary" style="margin: 0px 0px 20px">Predict</button>
           </form>
 
-          <h5 style="padding: 20px 0px; display: none;" id="pred-block">Prediction: <span id="pred-output"></span></h2>
+          <div id="pred-block" style="display: none;">
+            <h5 style="padding: 20px 0px">Prediction: <span id="pred-output"></span></h5>
+
 
             <h5 style="text-align: center;">Features of the song are:</h3>
               <div id="ticker-div" style="display: flex; align-items: center; padding: 0 20px;">
@@ -108,9 +110,12 @@
                 <p style="font-size: 18px;">Valence: &nbsp<span id="pred7"></span></p>
                 <p id="accuracy"></p>
               </div>
+          </div>
         </div>
-      </div>
 
-      <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
-      <script src="auth.js"></script>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
+    <script src="auth.js"></script>
 </body>
