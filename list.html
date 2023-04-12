@@ -17,53 +17,56 @@
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img
-          src="https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2020/05/1024/512/Bull-and-Stock-Market-iStock.jpg?ve=1&tl=1"
-          alt="" width="54" height="34" class="d-inline-block align-text-top">
-        Stock Predictor
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MUSIK
+        <img src="https://images.macrumors.com/t/hi1_a2IdFGRGMsJ0x31SdD_IcRk=/1600x/article-new/2018/05/apple-music-note.jpg"
+            alt="Bootstrap" width="30" height="27">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse hp" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
-          </li>
+    </button>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Stocks
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item active" href="list.html">List of Stocks</a></li>
-              <li><a class="dropdown-item" href="list.html">Predict a Stock</a></li>
-            </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/list.html ">Historical Data</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/FAQ.html ">FAQ</a>
+            </li>
 
-          </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/contact.html">Contact Us</a>
+            </li>
+
+
         </ul>
-      </div>
+
+
     </div>
-  </nav>
+</nav>
+
 
   <section>
 
     <!--for demo wrap-->
-    <h1>List of Stocks</h1>
+    <h1>Historical Data</h1>
     <div class="tbl-header">
       <table cellpadding="0" cellspacing="0">
         <thead>
           <tr>
-            <th>Ticker Symbol</th>
-            <th>Company Name</th>
-            <th>Price</th>
-            <th>Change ($)</th>
-            <th>Change %</th>
+            <th>Song Track</th>
+            <th>Artist</th>
+            <th>Year</th>
+            
           </tr>
         </thead>
       </table>
@@ -72,131 +75,299 @@
     <div class="tbl-content">
       <table cellpadding="0" cellspacing="0">
         <tbody>
-          <tr id="AMZN" onClick="getTicker(this.id)">
-            <td>AMZN</td>
-            <td>Amazon.com, Inc.</td>
-            <td>$2512.5</td>
-            <td>- 380</td>
-            <td>- 13.12%</td>
+          <tr id="Juju On That Beat (TZ Anthem)" onClick="getTicker(this.id)">
+            <td>Juju On That Beat (TZ Anthem)</td>
+            <td>Zay Hilfigerrr & Zayion McCall
+            </td>
+            <td>2010
+            </td>
+           
           </tr>
           <tr id="GOOG" onClick="getTicker(this.id)">
-            <td>GOOG</td>
-            <td>Alphabet Inc.</td>
-            <td>$2327.41</td>
-            <td>- 43</td>
-            <td>- 1.85%</td>
+            <td>Beautiful People
+            </td>
+            <td>Chris Brown Featuring Benny Benassi
+            </td>
+            <td>2010</td>
+            
           </tr>
 
           <tr id="AAPL" onClick="getTicker(this.id)">
-            <td>AAPL</td>
-            <td>Apple Inc.</td>
-            <td>$159.71</td>
-            <td>- 3.95</td>
-            <td>- 2.40%</td>
+            <td>Love The Way You Lie
+            </td>
+            <td>Eminem Featuring Rihanna</td>
+            <td>2010</td>
+            
           </tr>
           <tr id="VRSN" onClick="getTicker(this.id)">
-            <td>VRSN</td>
-            <td>VeriSign, Inc.</td>
-            <td>$178.69	</td>
-            <td>-29.73</td>
-            <td>-14.26%	</td>
+            <td>Runaway
+            </td>
+            <td>Kanye West Featuring Pusha T
+            </td>
+            <td>2010</td>
+            
           </tr>
           <tr id="INTC" onClick="getTicker(this.id)">
-            <td>INTC</td>
-            <td>Intel Corporation</td>
-            <td>$43.59</td>
-            <td>-3.25</td>
-            <td>-6.94%</td>
+            <td>Falling Down
+            </td>
+            <td>Selena Gomez & The Scene
+            </td>
+            <td>2000</td>
+            
           </tr>
         
         <tr id="RDBX" onClick="getTicker(this.id)">
-            <td>RDBX</td>
-            <td>Redbox Entertainment Inc.</td>
-            <td>$5.98</td>
-            <td>+2.45</td>
-            <td>+69.41%</td>
+            <td>Top Down
+            </td>
+            <td>Brian Bromberg
+            </td>
+            <td>2000</td>
+           
         </tr>
         
         <tr id="ACCD" onClick="getTicker(this.id)">
-            <td>ACCD</td>
-            <td>Accolade, Inc.</td>
-            <td>$5.56</td>
-            <td>-5.50</td>
-            <td>-49.73%</td>
+            <td>Alone
+            </td>
+            <td>Lasgo
+            </td>
+            <td>2000</td>
+            
         </tr>
         
         <tr id="BRK-B" onClick="getTicker(this.id)">
-            <td>BRK-B</td>
-            <td>Berkshire Hathaway Inc.</td>
-            <td>$321.86	</td>
-            <td>-9.41</td>
-            <td>-2.84%</td>
+            <td>Good Life
+            </td>
+            <td>OneRepublic
+            </td>
+            <td>2000</td>
+           
         </tr>
         
         <tr id="NVDA" onClick="getTicker(this.id)">
-            <td>NVDA</td>
-            <td>NVIDIA Corporation</td>
-            <td>$185.47	</td>
-            <td>-12.35</td>
-            <td>-6.24%</td>
+            <td>Incomplete
+            </td>
+            <td>Backstreet Boys
+            </td>
+            <td>2000</td>
+            
         </tr>
         
         <tr id="SNAP" onClick="getTicker(this.id)">
-            <td>SNAP</td>
-            <td>Snap Inc.</td>
-            <td>$28.46	</td>
-            <td>-0.35</td>
-            <td>-1.21%</td>
+            <td>Never Ever
+            </td>
+            <td>All Saints
+            </td>
+            <td>1990	</td>
+            
         </tr>
         
         <tr id="TCTZF" onClick="getTicker(this.id)">
-            <td>TCTZF</td>
-            <td>Tencent Holdings Limited</td>
-            <td>$46.95</td>
-            <td>+4.85</td>
-            <td>+11.52%	</td>
+            <td>Last Place You Look
+            </td>
+            <td>The Get Up Kids
+            </td>
+            <td>1990</td>
+            
         </tr>
         
         <tr id="PDD" onClick="getTicker(this.id)">
-            <td>PDD</td>
-            <td>Pinduoduo Inc.</td>
-            <td>$43.09	</td>
-            <td>+5.14</td>
-            <td>+13.54%</td>
+            <td>Drive
+            </td>
+            <td>Incubus
+            </td>
+            <td>1990	</td>
+            
         </tr>
         
         <!-- here -->
         <tr id="NCR" onClick="getTicker(this.id)">
-            <td>NCR</td>
-            <td>NCR Corporation</td>
-            <td>$35.03	</td>
-            <td>+3.15	</td>
-            <td>+9.88%</td>
+            <td>As We're Told
+            </td>
+            <td>Samiam
+            </td>
+            <td>1990</td>
+           
         </tr>
         
         
         <tr id="CINF" onClick="getTicker(this.id)">
-            <td>CINF</td>
-            <td>Cincinnati Financial Corporation</td>
-            <td>$122.66	</td>
-            <td>-13.34</td>
-            <td>-9.81%</td>
+            <td>I Like To Move It
+            </td>
+            <td>Reel 2 Real Featuring The Mad Stuntman
+            </td>
+            <td>1990</td>
+            
+        </tr>
+<!-- puttaaa raraaa -->
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Driving Blind
+
+          </td>
+          <td>Chris & Cosey
+
+          </td>
+          <td>1980</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Move The Crowd
+
+          </td>
+          <td>Eric B. & Rakim
+
+          </td>
+          <td>1980</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Happy When It Rains
+
+          </td>
+          <td>The Jesus and Mary Chain
+
+          </td>
+          <td>1980</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Need a Man Blues
+
+          </td>
+          <td>Bronski Beat
+
+          </td>
+          <td>1980</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>King of the Dead
+
+          </td>
+          <td>Cirith Ungol
+
+          </td>
+          <td>1980</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Listen Here
+
+          </td>
+          <td>Brian Auger & The Trinity
+
+          </td>
+          <td>1970</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Disco Nights (Rock-Freak)
+
+          </td>
+          <td>G.Q.
+
+          </td>
+          <td>1970</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Chip Away The Stone
+
+          </td>
+          <td>Aerosmith
+
+          </td>
+          <td>1970</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Shake It
+
+          </td>
+          <td>Ian Matthews
+
+          </td>
+          <td>1970</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>War
+
+          </td>
+          <td>Edwin Starr
+
+          </td>
+          <td>1970</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Uravu Solla
+
+
+          </td>
+          <td>P. Susheela
+
+
+          </td>
+          <td>1960</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Sweet Memories
+
+
+          </td>
+          <td>Andy Williams
+
+
+          </td>
+          <td>1960</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Got Myself A Good Man
+
+
+          </td>
+          <td>Pucho & The Latin Soul Brothers
+
+
+          </td>
+          <td>1960</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Red Roses For A Blue Lady
+
+
+          </td>
+          <td>Vic Dana
+
+
+          </td>
+          <td>1960</td>
+        </tr>
+
+        <tr id="GOOG" onClick="getTicker(this.id)">
+          <td>Ghetto Funk
+
+
+          </td>
+          <td>Ike Turner & The Kings Of Rhythm
+
+
+          </td>
+          <td>1960</td>
         </tr>
         
-        <tr id="NET" onClick="getTicker(this.id)">
-            <td>NET</td>
-            <td>Cloudflare, Inc.</td>
-            <td>$86.14</td>
-            <td>-9.11</td>
-            <td>-9.56%</td>
-        </tr>
+
+        
 
         </tbody>
       </table>
     </div>
   </section>
 
-  <div id="ticker-div" style="display: flex; align-items: center; padding: 0 50px;">
+  <!-- <div id="ticker-div" style="display: flex; align-items: center; padding: 0 50px;">
     <p style="font-size: 18px;">Ticker symbol chosen: &nbsp;</p>
     <p id="ticker"></p>
   </div>
@@ -211,7 +382,7 @@
   <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 50px 50px 50px;">
     <p style="font-size: 18px;">Accuracy: &nbsp;</p>
     <p id="accuracy"></p>
-  </div>
+  </div> -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
