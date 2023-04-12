@@ -272,25 +272,79 @@ var user_adult_email = "";
 
 // ---------------------------------------------------- Authentication --------------------------------------------
 
+// Getting the access token from spotify
+const getToken = async () => {
+  // getting the access token
+  clientId = "a7513821a0584e2f8fd2f31f16f686e1";
+  clientSecret = "979dd225cd184e269ecdc810fab66d80";
+  let result = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+    },
+    body: "grant_type=client_credentials",
+  });
+  let data = await result.json();
+  return data.access_token;
+};
+
+// getting the songs features
+const getFeatures = async () => {
+  const access_token = await getToken();
+  result = await fetch(
+    "https://api.spotify.com/v1/audio-features/6Knv6wdA0luoMUuuoYi2i1",
+    {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + access_token,
+      },
+    }
+  );
+  data = await result.json();
+  return data;
+};
+
 // Creating a user
 const signUpBtn = document.querySelector("#signup-btn");
 if (signUpBtn) {
-  signUpBtn.addEventListener("click", (e) => {
+  signUpBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    email = document.getElementById("user-email-signup").value;
-    password = document.getElementById("user-password-signup").value;
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch((error) => {
-        // setting error message
-        setError = error.message;
-        console.log(setError);
-        alertText.style.display = "block";
-        alertText.innerHTML = setError;
+    // const query = {
+    //   query: "On The Hotline",
+    // };
+
+    const data = await getFeatures();
+    const query = {
+      data: data,
+    };
+
+    fetch("http://127.0.0.1:5000/predict", {
+      method: "POST",
+      body: JSON.stringify(query),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
       });
-    console.log("User created!");
+
+    // email = document.getElementById("user-email-signup").value;
+    // password = document.getElementById("user-password-signup").value;
+    // firebase
+    //   .auth()
+    //   .createUserWithEmailAndPassword(email, password)
+    //   .catch((error) => {
+    //     // setting error message
+    //     setError = error.message;
+    //     console.log(setError);
+    //     alertText.style.display = "block";
+    //     alertText.innerHTML = setError;
+    //   });
+    // console.log("User created!");
 
     // const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
     // const alert = (message, type) => {
