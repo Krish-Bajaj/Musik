@@ -270,8 +270,7 @@ var user_adult_email = "";
 //   });
 // }
 
-// ---------------------------------------------------- Authentication --------------------------------------------
-
+// ---------------------------------------------------- prediction.html --------------------------------------------
 // Getting the access token from spotify
 const getToken = async () => {
   // getting the access token
@@ -290,20 +289,71 @@ const getToken = async () => {
 };
 
 // getting the songs features
-const getFeatures = async () => {
+const predBlock = document.querySelector("#pred-block");
+const predText = document.querySelector("#pred-output");
+const pred1 = document.querySelector("#pred1");
+const pred2 = document.querySelector("#pred2");
+const pred3 = document.querySelector("#pred3");
+const pred4 = document.querySelector("#pred4");
+const pred5 = document.querySelector("#pred5");
+const pred6 = document.querySelector("#pred6");
+const pred7 = document.querySelector("#pred7");
+const getFeatures = async (id) => {
   const access_token = await getToken();
-  result = await fetch(
-    "https://api.spotify.com/v1/audio-features/6Knv6wdA0luoMUuuoYi2i1",
-    {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + access_token,
-      },
-    }
-  );
+  //   6Knv6wdA0luoMUuuoYi2i1
+  result = await fetch("https://api.spotify.com/v1/audio-features/" + id, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + access_token,
+    },
+  });
   data = await result.json();
-  return data;
+
+  const query = {
+    data: data,
+  };
+
+  fetch("http://127.0.0.1:5000/", {
+    method: "POST",
+    body: JSON.stringify(query),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      predBlock.style.display = "block";
+      if (json["pred"] === "0") {
+        predText.innerHTML = "Flop!";
+      } else {
+        predText.innerHTML = "Hit!";
+      }
+      console.log(json);
+    });
+
+    console.log(data)
+    pred1.innerHTML = data["acousticness"];
+    pred2.innerHTML = data["danceability"];
+    pred3.innerHTML = data["energy"];
+    pred4.innerHTML = data["loudness"];
+    pred5.innerHTML = data["instrumentalness"];
+    pred6.innerHTML = data["tempo"];
+    pred7.innerHTML = data["valence"];
 };
+
+const predictBtn = document.querySelector("#predict-btn");
+if (predictBtn) {
+  predictBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log("here");
+
+    id = document.getElementById("spotify-song-id").value;
+    console.log("id", id);
+    const data = await getFeatures(id);
+  });
+}
+
+// ---------------------------------------------------- Authentication --------------------------------------------
 
 // Creating a user
 const signUpBtn = document.querySelector("#signup-btn");
@@ -320,7 +370,7 @@ if (signUpBtn) {
       data: data,
     };
 
-    fetch("http://127.0.0.1:5000/predict", {
+    fetch("http://127.0.0.1:5000/", {
       method: "POST",
       body: JSON.stringify(query),
       headers: {
@@ -332,19 +382,19 @@ if (signUpBtn) {
         console.log(json);
       });
 
-    // email = document.getElementById("user-email-signup").value;
-    // password = document.getElementById("user-password-signup").value;
-    // firebase
-    //   .auth()
-    //   .createUserWithEmailAndPassword(email, password)
-    //   .catch((error) => {
-    //     // setting error message
-    //     setError = error.message;
-    //     console.log(setError);
-    //     alertText.style.display = "block";
-    //     alertText.innerHTML = setError;
-    //   });
-    // console.log("User created!");
+    email = document.getElementById("user-email-signup").value;
+    password = document.getElementById("user-password-signup").value;
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch((error) => {
+        // setting error message
+        setError = error.message;
+        console.log(setError);
+        alertText.style.display = "block";
+        alertText.innerHTML = setError;
+      });
+    console.log("User created!");
 
     // const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
     // const alert = (message, type) => {
