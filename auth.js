@@ -361,26 +361,26 @@ if (signUpBtn) {
   signUpBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
+    // // const query = {
+    // //   query: "On The Hotline",
+    // // };
+
+    // const data = await getFeatures();
     // const query = {
-    //   query: "On The Hotline",
+    //   data: data,
     // };
 
-    const data = await getFeatures();
-    const query = {
-      data: data,
-    };
-
-    fetch("http://127.0.0.1:5000/", {
-      method: "POST",
-      body: JSON.stringify(query),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-      });
+    // fetch("http://127.0.0.1:5000/", {
+    //   method: "POST",
+    //   body: JSON.stringify(query),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //   });
 
     email = document.getElementById("user-email-signup").value;
     password = document.getElementById("user-password-signup").value;
