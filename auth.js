@@ -13,12 +13,12 @@
 
 const firebaseConfig = {
   apiKey: "AIzaSyDmMNknYhlsDLCue5K-takwgGK11h-NUyQ",
-  authDomain: "musik-7bfe9.firebaseapp.com",
-  projectId: "musik-7bfe9",
-  storageBucket: "musik-7bfe9.appspot.com",
+  authDomain: "SpotiFind-7bfe9.firebaseapp.com",
+  projectId: "SpotiFind-7bfe9",
+  storageBucket: "SpotiFind-7bfe9.appspot.com",
   messagingSenderId: "481293751439",
   appId: "1:481293751439:web:c1afcd90f33aa1d1f40cfa",
-  databaseURL: "https://musik-7bfe9-default-rtdb.firebaseio.com/",
+  databaseURL: "https://SpotiFind-7bfe9-default-rtdb.firebaseio.com/",
   measurementId: "G-61RE9DBFCN",
 };
 // Initialize Firebase
