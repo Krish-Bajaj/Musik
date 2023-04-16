@@ -2,107 +2,120 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Welcome to iCoder. A blog for coding enthusiasts">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Welcome to iCoder. A blog for coding enthusiasts">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Music Analysis and Success Prediction</title>
+  <title>Music Analysis and Success Prediction</title>
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">MUSIK
-            <img src="https://images.macrumors.com/t/hi1_a2IdFGRGMsJ0x31SdD_IcRk=/1600x/article-new/2018/05/apple-music-note.jpg"
-                alt="Bootstrap" width="30" height="27">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MUSIK
+      <img
+        src="https://images.macrumors.com/t/hi1_a2IdFGRGMsJ0x31SdD_IcRk=/1600x/article-new/2018/05/apple-music-note.jpg"
+        alt="Bootstrap" width="30" height="27">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="/about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/list.html ">Historical Data</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/FAQ.html ">FAQ</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact.html">Contact Us</a>
-                </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/list.html ">Historical Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/FAQ.html ">FAQ</a>
+        </li>
 
 
-            </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact Us</a>
+        </li>
 
 
+      </ul>
+
+
+    </div>
+  </nav>
+
+  <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog"
+    id="modalSignin">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0  text-center">
+          <h1 class="fw-bold mb-0 fs-2">Let's Predict</h1>
         </div>
-    </nav>
 
-    <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content rounded-4 shadow">
-            <div class="modal-header p-5 pb-4 border-bottom-0  text-center">
-              <h1 class="fw-bold mb-0 fs-2">Let's Predict</h1>
-             
-            </div>
-      
-            <div class="modal-body pt-0">
-              <form class="">
-                <div class="form-floating mb-3">
-                    <label for="floatingInput">Enter Song ID</label>
-                  <input type="email" class="form-control rounded-3" id="floatingInput">
-                  
-                </div>
-                
-                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Check</button>
-            </div>
 
-            <h5 class="pt-2">Features of the song are:</h3>
-                <div id="ticker-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Acousticness: &nbsp;</p>
-                    <p id="ticker"></p>
-                  </div>
-                  <div id="last-day-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Danceability: &nbsp;</p>
-                    <p id="last-day"></p>
-                  </div>
-                  <div id="next-day-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Energy: &nbsp;</p>
-                    <p id="next-day"></p>
-                  </div>
-                  
-                  <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Loudness: &nbsp;</p>
-                    <p id="accuracy"></p>
-                  </div>
-                
-                  <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Instrumentalness: &nbsp;</p>
-                    <p id="accuracy"></p>
-                  </div>
-                  
-                  <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Tempo: &nbsp;</p>
-                    <p id="accuracy"></p>
-                  </div>
-                
-                  <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
-                    <p style="font-size: 18px;">Valence: &nbsp;</p>
-                    <p id="accuracy"></p>
-                  </div>
-                
+        <div style="padding: 0 20px">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Enter Song ID</label>
+              <input type="text" id="spotify-song-id" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            </div>
+            <button type="submit" id="predict-btn" class="btn btn-primary" style="margin: 0px 0px 20px">Predict</button>
+          </form>
+
+          <div id="pred-block" style="display: none;">
+            <h5 style="padding: 20px 0px">Prediction: <span id="pred-output"></span></h5>
+
+
+            <h5 style="text-align: center;">Features of the song are:</h3>
+              <div id="ticker-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Acousticness: &nbsp;<span id="pred1"></span></p>
+                <p id="ticker"></p>
+              </div>
+              <div id="last-day-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Danceability: &nbsp;<span id="pred2"></span></p>
+                <p id="last-day"></p>
+              </div>
+              <div id="next-day-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Energy: &nbsp;<span id="pred3"></span></p>
+                <p id="next-day"></p>
+              </div>
+
+              <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Loudness: &nbsp;<span id="pred4"></span></p>
+                <p id="accuracy"></p>
+              </div>
+
+              <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Instrumentalness: &nbsp;<span id="pred5"></span></p>
+                <p id="accuracy"></p>
+              </div>
+
+              <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Tempo: &nbsp;<span id="pred6"></span></p>
+                <p id="accuracy"></p>
+              </div>
+
+              <div id="accuracy-div" style="display: flex; align-items: center; padding: 0 20px;">
+                <p style="font-size: 18px;">Valence: &nbsp<span id="pred7"></span></p>
+                <p id="accuracy"></p>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
+    <script src="auth.js"></script>
+</body>

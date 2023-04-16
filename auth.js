@@ -270,13 +270,116 @@ var user_adult_email = "";
 //   });
 // }
 
+// ---------------------------------------------------- prediction.html --------------------------------------------
+// Getting the access token from spotify
+const getToken = async () => {
+  // getting the access token
+  clientId = "a7513821a0584e2f8fd2f31f16f686e1";
+  clientSecret = "979dd225cd184e269ecdc810fab66d80";
+  let result = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+    },
+    body: "grant_type=client_credentials",
+  });
+  let data = await result.json();
+  return data.access_token;
+};
+
+// getting the songs features
+const predBlock = document.querySelector("#pred-block");
+const predText = document.querySelector("#pred-output");
+const pred1 = document.querySelector("#pred1");
+const pred2 = document.querySelector("#pred2");
+const pred3 = document.querySelector("#pred3");
+const pred4 = document.querySelector("#pred4");
+const pred5 = document.querySelector("#pred5");
+const pred6 = document.querySelector("#pred6");
+const pred7 = document.querySelector("#pred7");
+const getFeatures = async (id) => {
+  const access_token = await getToken();
+  result = await fetch("https://api.spotify.com/v1/audio-features/" + id, {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + access_token,
+    },
+  });
+  data = await result.json();
+
+  const query = {
+    data: data,
+  };
+
+  predBlock.style.display = "block";
+  fetch("http://127.0.0.1:5000/", {
+    method: "POST",
+    body: JSON.stringify(query),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json["pred"] === "0") {
+        predText.innerHTML = "Flop!";
+      } else {
+        predText.innerHTML = "Hit!";
+      }
+      console.log(json);
+    });
+
+  console.log(data);
+  pred1.innerHTML = data["acousticness"];
+  pred2.innerHTML = data["danceability"];
+  pred3.innerHTML = data["energy"];
+  pred4.innerHTML = data["loudness"];
+  pred5.innerHTML = data["instrumentalness"];
+  pred6.innerHTML = data["tempo"];
+  pred7.innerHTML = data["valence"];
+};
+
+const predictBtn = document.querySelector("#predict-btn");
+if (predictBtn) {
+  predictBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log("here");
+
+    id = document.getElementById("spotify-song-id").value;
+    console.log("id", id);
+    const data = await getFeatures(id);
+  });
+}
+
 // ---------------------------------------------------- Authentication --------------------------------------------
 
 // Creating a user
 const signUpBtn = document.querySelector("#signup-btn");
 if (signUpBtn) {
-  signUpBtn.addEventListener("click", (e) => {
+  signUpBtn.addEventListener("click", async (e) => {
     e.preventDefault();
+
+    // // const query = {
+    // //   query: "On The Hotline",
+    // // };
+
+    // const data = await getFeatures();
+    // const query = {
+    //   data: data,
+    // };
+
+    // fetch("http://127.0.0.1:5000/", {
+    //   method: "POST",
+    //   body: JSON.stringify(query),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //   });
 
     email = document.getElementById("user-email-signup").value;
     password = document.getElementById("user-password-signup").value;
