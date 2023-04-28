@@ -1,30 +1,27 @@
-const tickerDiv = document.getElementById("ticker-div");
-const lastDayDiv = document.getElementById("last-day-div");
-const nextDayDiv = document.getElementById("next-day-div");
-const accuracyDiv = document.getElementById("accuracy-div");
+const featureList = document.getElementById("feature-list");
+const songtrack = document.getElementById("songtrack")
+const artist = document.getElementById("artist")
+const danceability = document.getElementById("danceability")
+const energy = document.getElementById("energy")
+const acousticness = document.getElementById("acousticness")
+const liveness = document.getElementById("liveness")
+const target = document.getElementById("target")
+const valence = document.getElementById("valence")
+const instrumentalness = document.getElementById("instrumentalness")
+const speechiness = document.getElementById("speechiness")
+const sections = document.getElementById("sections")
+const mode = document.getElementById("mode")
+featureList.style.display = "none";
 
-tickerDiv.style.display = "none";
-lastDayDiv.style.display = "none";
-nextDayDiv.style.display = "none";
-accuracyDiv.style.display = "none";
-
-const tickerOutput = document.getElementById("ticker");
-const lastDayOutput = document.getElementById("last-day");
-const nextDayOutput = document.getElementById("next-day");
-const accuracy = document.getElementById("accuracy");
-
-function getMusicData(symbol) {
+function getMusicData(song) {
   // e.preventDefault()
-  tickerDiv.style.display = "flex";
-  lastDayDiv.style.display = "flex";
-  nextDayDiv.style.display = "flex";
-  accuracyDiv.style.display = "flex";
-  tickerOutput.innerText = symbol;
+  featureList.style.display = "block";
 
   let query = {
-    query: symbol,
+    query: song,
   };
-  fetch("http://127.0.0.1:5000/", {
+  let data = {} 
+  fetch("http://127.0.0.1:5000/historical", {
     method: "POST",
     body: JSON.stringify(query),
     headers: {
@@ -33,16 +30,17 @@ function getMusicData(symbol) {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
-      // document.getElementById("demo").innerHTML = json;
+      songtrack.innerText = json["Song Track"];
+      artist.innerText = json["Artist"];
+      danceability.innerText = json["danceability"];
+      energy.innerText = json["energy"];
+      acousticness.innerText = json["acousticness"];
+      liveness.innerText = json["liveness"];
+      target.innerText = json["target"];
+      valence.innerText = json["valence"];
+      instrumentalness.innerText = json["instrumentalness"];
+      speechiness.innerText = json["speechiness"];
+      sections.innerText = json["sections"];
+      mode.innerText = json["mode"];
     });
-
-  const response = {
-    last: 123,
-    next: 345,
-    accuracy: "98%",
-  };
-  lastDayOutput.innerText = response["last"];
-  nextDayOutput.innerText = response["next"];
-  accuracy.innerText = response["accuracy"];
 }
